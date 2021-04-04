@@ -1,0 +1,47 @@
+.card-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.card-content {
+  padding: 10px 0;
+}
+
+.card-description,
+.card-title {
+  margin: 0;
+  color: white;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.card-description {
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.card-picture {
+  min-height: 400px;
+  width: 100%;
+  background-color: gray;
+}
+
+.card-rating {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  color: white;
+  text-align: center;
+  margin: 0;
+  background-color: rgb(230, 190, 17);
+  padding: 2.5px 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  transform: translate(-50%, -50%);
+}

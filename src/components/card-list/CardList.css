@@ -1,0 +1,31 @@
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100%;
+  gap: 10px;
+}
+
+@media screen and (max-width: 1600px) {
+  .card-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .card-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .card-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+  }
+}
