@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './App.css';
 
 import CardList from 'components/card-list';
-import GenderList from 'components/gender-list';
+import TrendingList from 'components/trending-list';
 
 import { GenderContextProvider } from 'context/GenderContext';
 
@@ -19,7 +19,8 @@ function App() {
     <GenderContextProvider>
       <div className="App">
         <div className="sidebar">
-          <GenderList />
+          <TrendingList type="day" />
+          <TrendingList type="week" />
         </div>
         <div className="content">
           <div className="content-header">

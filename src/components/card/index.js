@@ -4,7 +4,7 @@ import './Card.css';
 
 import { GenderContext } from 'context/GenderContext';
 
-function Card({ name, picture, genderList, overview, average }) {
+function Card({ name, picture, genderList, average, modeMini = false }) {
   const { genders } = useContext(GenderContext);
 
   const genderName = genders
@@ -13,7 +13,7 @@ function Card({ name, picture, genderList, overview, average }) {
     .join(' ');
 
   return (
-    <div className="card-container">
+    <div className={`card-container ${modeMini ? 'is-mini' : ''}`}>
       <img
         src={'https://image.tmdb.org/t/p/original' + picture}
         className="card-picture"

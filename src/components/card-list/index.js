@@ -1,20 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-import GetMovies from 'services/GetMovies';
 import Card from 'components/card';
+import useMovies from 'hooks/useMovies';
 
 import './CardList.css';
 
 function CardList({ keyword }) {
-  const [movies, setMovies] = useState([]);
+  const { movies, loading } = useMovies({ keyword });
 
-  useEffect(() => {
-    GetMovies({ keyword }).then((res) => {
-      if (res) {
-        setMovies(res);
-      }
-    });
-  }, [keyword]);
+  if (loading) {
+    return <section className="empty-content">Loading ...</section>;
+  }
 
   return (
     <section className="card-wrapper">

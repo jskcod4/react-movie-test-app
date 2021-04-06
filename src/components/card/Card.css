@@ -45,3 +45,12 @@
   font-size: 14px;
   transform: translate(-50%, -50%);
 }
+
+.card-container.is-mini .card-picture {
+  min-height: 40px;
+}
+
+.card-container.is-mini .card-rating,
+.card-container.is-mini .card-content {
+  display: none;
+}

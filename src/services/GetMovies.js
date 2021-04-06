@@ -6,7 +6,7 @@ export function GetResponseMovie(response) {
   return results;
 }
 
-export default function GetMovie({ keyword = 'batman' }) {
+export default function GetMovies({ keyword = 'batman' }) {
   return fetch(`${API_URL}/search/movie?api_key=${API_KEY}&query=${keyword}`)
     .then((res) => res.json())
     .then(GetResponseMovie);
