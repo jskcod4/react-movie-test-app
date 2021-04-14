@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { fromEvent, timer } from 'rxjs';
+import { debounce, map, distinctUntilChanged } from 'rxjs/operators';
 
 import './App.css';
 
@@ -12,8 +14,28 @@ function App() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    setKeyword(evt.target.value);
+
+    const query = evt.target.value ? evt.target.value : 'Interstellar';
+
+    setKeyword(query);
   };
+
+  const inputRef = useRef();
+
+  useEffect(() => {
+    const inputChange = fromEvent(inputRef.current, 'input')
+      .pipe(
+        distinctUntilChanged(),
+        debounce(() => timer(450)),
+        map((res) => res?.target?.value)
+      )
+      .subscribe((value) => {
+        const query = value ? value : 'Interstellar';
+        setKeyword(query);
+      });
+
+    return () => inputChange.unsubscribe();
+  }, []);
 
   return (
     <GenderContextProvider>
@@ -30,7 +52,7 @@ function App() {
                 type="text"
                 className="form-input"
                 placeholder="Search your favorite movies ..."
-                onChange={handleSubmit}
+                ref={inputRef}
               />
             </form>
           </div>
