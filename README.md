@@ -1,6 +1,6 @@
-# React movie test app
+# React movie test app 🎥
 
-Para ejecutar:
+Para ejecutar 🚀:
 
 ``` npm install ```
 
